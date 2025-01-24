@@ -49,14 +49,17 @@
     [NSLayoutConstraint activateConstraints:@[
         [self.taskField.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:20],
         [self.taskField.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:20],
+        [self.taskField.heightAnchor constraintEqualToConstant:40],
         
         [self.insertButton.topAnchor constraintEqualToAnchor:self.taskField.topAnchor],
         [self.insertButton.leadingAnchor constraintEqualToAnchor:self.taskField.trailingAnchor constant:20],
         [self.insertButton.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant:-20],
+        [self.insertButton.heightAnchor constraintEqualToAnchor:self.taskField.heightAnchor],
         
-        [self.taskTable.topAnchor constraintEqualToAnchor:self.taskField.bottomAnchor constant:100],
+        [self.taskTable.topAnchor constraintEqualToAnchor:self.taskField.bottomAnchor constant:20],
         [self.taskTable.leadingAnchor constraintEqualToAnchor:self.taskField.leadingAnchor],
         [self.taskTable.trailingAnchor constraintEqualToAnchor:self.insertButton.trailingAnchor],
+        [self.taskTable.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-20]
     ]];
 }
 
