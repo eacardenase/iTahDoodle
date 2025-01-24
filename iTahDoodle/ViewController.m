@@ -21,10 +21,6 @@
     [self setupViews];
 }
 
-
-- (void)addTask:(id)sender {
-}
-
 - (void)setupViews
 {
     self.taskField = [UITextField new];
@@ -33,6 +29,7 @@
     
     self.insertButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [self.insertButton setTitle:@"Insert" forState:UIControlStateNormal];
+    [self.insertButton addTarget:self action:@selector(addTask:) forControlEvents:UIControlEventTouchUpInside];
     
     self.taskTable = [UITableView new];
     self.taskTable.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -55,12 +52,28 @@
         [self.insertButton.leadingAnchor constraintEqualToAnchor:self.taskField.trailingAnchor constant:20],
         [self.insertButton.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant:-20],
         [self.insertButton.heightAnchor constraintEqualToAnchor:self.taskField.heightAnchor],
+        [self.insertButton.widthAnchor constraintEqualToConstant:60],
         
         [self.taskTable.topAnchor constraintEqualToAnchor:self.taskField.bottomAnchor constant:20],
         [self.taskTable.leadingAnchor constraintEqualToAnchor:self.taskField.leadingAnchor],
         [self.taskTable.trailingAnchor constraintEqualToAnchor:self.insertButton.trailingAnchor],
         [self.taskTable.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-20]
     ]];
+}
+
+#pragma mark - Actions
+
+- (void)addTask:(id)sender {
+    NSString *task = [self.taskField text];
+    
+    if ([task length] == 0) {
+        return;
+    }
+    
+    NSLog(@"Task entered: %@", task);
+    
+    [self.taskField setText:@""];
+    [self.taskField resignFirstResponder];
 }
 
 @end
