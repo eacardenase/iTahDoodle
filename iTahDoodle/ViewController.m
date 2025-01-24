@@ -17,6 +17,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    self.tasks = [NSMutableArray array];
     
     [self setupViews];
 }
@@ -34,6 +35,7 @@
     self.taskTable = [UITableView new];
     self.taskTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.taskTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    self.taskTable.dataSource = self;
     
     [self.taskField setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.insertButton setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -63,17 +65,36 @@
 
 #pragma mark - Actions
 
-- (void)addTask:(id)sender {
+- (void)addTask:(id)sender
+{
     NSString *task = [self.taskField text];
     
     if ([task length] == 0) {
         return;
     }
     
-    NSLog(@"Task entered: %@", task);
+    [self.tasks addObject:task];
+    [self.taskTable reloadData];
     
     [self.taskField setText:@""];
     [self.taskField resignFirstResponder];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.tasks count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.taskTable dequeueReusableCellWithIdentifier:@"Cell"];
+    NSString *item = [self.tasks objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = item;
+    
+    return cell;
 }
 
 @end
