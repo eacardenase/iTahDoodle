@@ -7,6 +7,13 @@
 
 #import "ViewController.h"
 
+NSString *DocPath(void)
+{
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    return [pathList[0] stringByAppendingPathComponent:@"data.td"];
+}
+
 @interface ViewController ()
 
 @end
@@ -17,7 +24,14 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.tasks = [NSMutableArray array];
+    
+    NSArray *plist = [NSArray arrayWithContentsOfFile:DocPath()];
+    
+    if (plist) {
+        self.tasks = [plist mutableCopy];
+    } else {
+        self.tasks = [NSMutableArray array];
+    }
     
     [self setupViews];
 }
