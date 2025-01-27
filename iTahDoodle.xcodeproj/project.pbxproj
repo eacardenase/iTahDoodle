@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A5B325452D4839DE00B0D1A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A5B325442D4839DE00B0D1A6 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A5D91F7C2D41B0D10018CC81 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5B325442D4839DE00B0D1A6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A5D91F602D41B0CF0018CC81 /* iTahDoodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTahDoodle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D91F7B2D41B0D10018CC81 /* iTahDoodleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTahDoodleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D91F852D41B0D10018CC81 /* iTahDoodleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTahDoodleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +93,7 @@
 		A5D91F572D41B0CF0018CC81 = {
 			isa = PBXGroup;
 			children = (
+				A5B325442D4839DE00B0D1A6 /* README.md */,
 				A5D91F622D41B0CF0018CC81 /* iTahDoodle */,
 				A5D91F7E2D41B0D10018CC81 /* iTahDoodleTests */,
 				A5D91F882D41B0D10018CC81 /* iTahDoodleUITests */,
@@ -224,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B325452D4839DE00B0D1A6 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
